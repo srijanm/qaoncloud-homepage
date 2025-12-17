@@ -74,6 +74,14 @@ button {
   --color-accent-dark: #2563EB;
   --color-accent-glow: rgba(59, 130, 246, 0.5);
 
+  /* Gradient Mesh Colors */
+  --mesh-blue: rgba(59, 130, 246, 0.2);
+  --mesh-blue-dark: rgba(37, 99, 235, 0.2);
+  --mesh-purple: rgba(139, 92, 246, 0.2);
+  --mesh-purple-dark: rgba(124, 58, 237, 0.2);
+  --mesh-cyan: rgba(6, 182, 212, 0.2);
+  --mesh-cyan-dark: rgba(8, 145, 178, 0.2);
+
   /* Accent Gradients */
   --gradient-accent: linear-gradient(135deg, #3B82F6 0%, #2563EB 100%);
   --gradient-accent-radial: radial-gradient(circle, #3B82F6 0%, #1D4ED8 100%);
@@ -514,6 +522,214 @@ h6 { font-size: var(--text-xl); }
   50% {
     transform: translate(-50%, -45%) scale(1.05);
   }
+}
+
+/* ----------------------------------------
+   Gradient Mesh Blob Animations
+   ---------------------------------------- */
+@keyframes blob-morph-1 {
+  0%, 100% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    transform: translate(0, 0) scale(1);
+  }
+  25% {
+    border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+    transform: translate(20px, -30px) scale(1.05);
+  }
+  50% {
+    border-radius: 50% 60% 30% 60% / 30% 40% 70% 50%;
+    transform: translate(-20px, 20px) scale(0.95);
+  }
+  75% {
+    border-radius: 40% 60% 70% 30% / 60% 50% 30% 70%;
+    transform: translate(10px, -10px) scale(1.02);
+  }
+}
+
+@keyframes blob-morph-2 {
+  0%, 100% {
+    border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    border-radius: 70% 30% 50% 50% / 30% 30% 70% 70%;
+    transform: translate(-30px, 20px) scale(1.08);
+  }
+  66% {
+    border-radius: 30% 60% 40% 70% / 60% 70% 30% 40%;
+    transform: translate(25px, -25px) scale(0.92);
+  }
+}
+
+@keyframes blob-morph-3 {
+  0%, 100% {
+    border-radius: 50% 50% 40% 60% / 60% 40% 60% 40%;
+    transform: translate(0, 0) rotate(0deg) scale(1);
+  }
+  50% {
+    border-radius: 40% 60% 50% 50% / 50% 60% 40% 60%;
+    transform: translate(15px, 25px) rotate(10deg) scale(1.05);
+  }
+}
+
+@keyframes blob-pulse {
+  0%, 100% {
+    opacity: 0.15;
+  }
+  50% {
+    opacity: 0.25;
+  }
+}
+
+@keyframes blob-drift {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(30px, -20px);
+  }
+  50% {
+    transform: translate(-20px, 30px);
+  }
+  75% {
+    transform: translate(-30px, -10px);
+  }
+}
+
+/* Base Blob Styles */
+.mesh-blob {
+  position: absolute;
+  pointer-events: none;
+  filter: blur(100px);
+  will-change: transform, border-radius;
+  z-index: 0;
+}
+
+.mesh-blob--blue {
+  background: radial-gradient(circle, var(--mesh-blue) 0%, var(--mesh-blue-dark) 100%);
+}
+
+.mesh-blob--purple {
+  background: radial-gradient(circle, var(--mesh-purple) 0%, var(--mesh-purple-dark) 100%);
+}
+
+.mesh-blob--cyan {
+  background: radial-gradient(circle, var(--mesh-cyan) 0%, var(--mesh-cyan-dark) 100%);
+}
+
+.mesh-blob--blend-blue-purple {
+  background: radial-gradient(ellipse, var(--mesh-blue) 0%, var(--mesh-purple-dark) 100%);
+}
+
+/* Blob Sizes */
+.mesh-blob--sm {
+  width: 300px;
+  height: 300px;
+}
+
+.mesh-blob--md {
+  width: 450px;
+  height: 450px;
+}
+
+.mesh-blob--lg {
+  width: 600px;
+  height: 600px;
+}
+
+.mesh-blob--xl {
+  width: 800px;
+  height: 800px;
+}
+
+/* Animation Variants */
+.mesh-blob--anim-1 {
+  animation: blob-morph-1 25s ease-in-out infinite, blob-pulse 8s ease-in-out infinite;
+}
+
+.mesh-blob--anim-2 {
+  animation: blob-morph-2 30s ease-in-out infinite, blob-pulse 10s ease-in-out infinite 2s;
+}
+
+.mesh-blob--anim-3 {
+  animation: blob-morph-3 20s ease-in-out infinite, blob-pulse 12s ease-in-out infinite 4s;
+}
+
+.mesh-blob--drift {
+  animation: blob-drift 35s ease-in-out infinite, blob-pulse 9s ease-in-out infinite;
+}
+
+/* Section-specific blob positioning */
+.hero__blob-1 {
+  top: 10%;
+  right: -10%;
+}
+
+.hero__blob-2 {
+  bottom: 10%;
+  left: -5%;
+}
+
+.pain__blob {
+  top: 20%;
+  left: -15%;
+  opacity: 0.18;
+}
+
+.partner__blob {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0.15;
+}
+
+.services__blob-1 {
+  top: -5%;
+  right: -10%;
+  opacity: 0.18;
+}
+
+.services__blob-2 {
+  bottom: 10%;
+  left: -10%;
+  opacity: 0.15;
+}
+
+.testimonial__blob {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0.12;
+}
+
+.guarantee__blob {
+  top: 20%;
+  right: -15%;
+  opacity: 0.18;
+}
+
+.case-studies__blob-1 {
+  top: 10%;
+  left: -10%;
+  opacity: 0.15;
+}
+
+.case-studies__blob-2 {
+  bottom: 20%;
+  right: -10%;
+  opacity: 0.18;
+}
+
+.final-cta__blob-1 {
+  top: 30%;
+  left: -20%;
+  opacity: 0.3;
+}
+
+.final-cta__blob-2 {
+  bottom: 10%;
+  right: -15%;
+  opacity: 0.25;
 }
 
 /* Split Layout Grid */
@@ -960,8 +1176,10 @@ h6 { font-size: var(--text-xl); }
    Services Section
    ---------------------------------------- */
 .services {
+  position: relative;
   padding: var(--space-24) 0;
   background: var(--color-bg-secondary);
+  overflow: hidden;
 }
 
 .services__header {
@@ -1067,7 +1285,9 @@ h6 { font-size: var(--text-xl); }
    Testimonial Section
    ---------------------------------------- */
 .testimonial {
+  position: relative;
   padding: var(--space-24) 0;
+  overflow: hidden;
 }
 
 .testimonial__headline {
@@ -1164,8 +1384,10 @@ h6 { font-size: var(--text-xl); }
    Guarantee Section
    ---------------------------------------- */
 .guarantee {
+  position: relative;
   padding: var(--space-24) 0;
   background: var(--color-bg-secondary);
+  overflow: hidden;
 }
 
 .guarantee__header {
@@ -1247,7 +1469,9 @@ h6 { font-size: var(--text-xl); }
    Case Studies Section
    ---------------------------------------- */
 .case-studies {
+  position: relative;
   padding: var(--space-24) 0;
+  overflow: hidden;
 }
 
 .case-studies__header {
@@ -1981,6 +2205,37 @@ h6 { font-size: var(--text-xl); }
 }
 
 /* ----------------------------------------
+   Gradient Mesh Mobile Optimizations
+   ---------------------------------------- */
+@media (max-width: 768px) {
+  .mesh-blob {
+    display: none;
+  }
+
+  /* Keep only hero and CTA blobs on mobile, but smaller */
+  .hero__blob-1,
+  .final-cta__blob-1 {
+    display: block;
+    width: 250px;
+    height: 250px;
+    opacity: 0.15;
+  }
+}
+
+/* Tablet - reduce blob sizes */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .mesh-blob--lg {
+    width: 400px;
+    height: 400px;
+  }
+
+  .mesh-blob--xl {
+    width: 500px;
+    height: 500px;
+  }
+}
+
+/* ----------------------------------------
    Reduced Motion
    ---------------------------------------- */
 @media (prefers-reduced-motion: reduce) {
@@ -2001,6 +2256,11 @@ h6 { font-size: var(--text-xl); }
 
   .logos__track {
     animation: none;
+  }
+
+  .mesh-blob {
+    animation: none !important;
+    opacity: 0.15 !important;
   }
 }
 
