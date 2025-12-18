@@ -346,14 +346,9 @@ h6 { font-size: var(--text-xl); }
   opacity: 0.8;
 }
 
-.nav__logo-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.nav__logo-icon svg {
-  display: block;
+.nav__logo-img {
+  height: 32px;
+  width: auto;
 }
 
 /* Nav Links */
