@@ -1820,17 +1820,11 @@ h6 { font-size: var(--text-xl); }
 .footer__logo {
   display: flex;
   align-items: center;
-  gap: var(--space-3);
-  font-family: var(--font-display);
-  font-weight: var(--font-bold);
-  font-size: var(--text-lg);
-  color: var(--color-text-primary);
 }
 
-.footer__logo-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.footer__logo-img {
+  height: 72px;
+  width: auto;
 }
 
 .footer__nav {
