@@ -347,7 +347,7 @@ h6 { font-size: var(--text-xl); }
 }
 
 .nav__logo-img {
-  height: 48px;
+  height: 40px;
   width: auto;
 }
 
@@ -1823,7 +1823,7 @@ h6 { font-size: var(--text-xl); }
 }
 
 .footer__logo-img {
-  height: 48px;
+  height: 40px;
   width: auto;
 }
 
