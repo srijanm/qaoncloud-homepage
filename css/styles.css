@@ -1092,36 +1092,63 @@ h6 { font-size: var(--text-xl); }
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 64px;
-  height: 64px;
-  background: linear-gradient(135deg, rgba(239, 68, 68, 0.2) 0%, rgba(255, 100, 50, 0.15) 100%);
-  border: 1px solid rgba(239, 68, 68, 0.3);
+  width: 72px;
+  height: 72px;
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.25) 0%, rgba(255, 100, 50, 0.2) 100%);
+  border: 2px solid rgba(239, 68, 68, 0.4);
   border-radius: var(--radius-xl);
-  color: #EF4444;
+  color: #f87171;
   margin-bottom: var(--space-6);
-  box-shadow: 0 4px 16px rgba(239, 68, 68, 0.2);
+  box-shadow:
+    0 4px 16px rgba(239, 68, 68, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
   animation: icon-pulse 3s ease-in-out infinite;
+}
+
+.pain__card-icon svg {
+  width: 36px;
+  height: 36px;
 }
 
 @keyframes icon-pulse {
   0%, 100% {
-    box-shadow: 0 4px 16px rgba(239, 68, 68, 0.2);
+    box-shadow:
+      0 4px 16px rgba(239, 68, 68, 0.25),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    transform: scale(1);
   }
   50% {
-    box-shadow: 0 4px 24px rgba(239, 68, 68, 0.4);
+    box-shadow:
+      0 8px 32px rgba(239, 68, 68, 0.4),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    transform: scale(1.05);
   }
 }
 
 .pain__card-title {
   position: relative;
   z-index: 1;
-  font-size: var(--text-2xl);
-  font-weight: var(--font-bold);
-  margin-bottom: var(--space-6);
-  background: linear-gradient(135deg, #ffffff 0%, #fca5a5 100%);
+  font-size: var(--text-3xl);
+  font-weight: var(--font-extrabold);
+  margin-bottom: var(--space-8);
+  letter-spacing: -0.02em;
+}
+
+.pain__card-title-text {
+  background: linear-gradient(135deg, #ffffff 0%, #fecaca 50%, #f87171 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+}
+
+.pain__card-title::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 3px;
+  margin-top: var(--space-4);
+  background: linear-gradient(90deg, #ef4444 0%, rgba(239, 68, 68, 0) 100%);
+  border-radius: var(--radius-full);
 }
 
 .pain__list {
