@@ -739,8 +739,8 @@ h6 { font-size: var(--text-xl); }
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: 1fr 1.2fr;
-  gap: var(--space-12);
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-8);
   align-items: center;
 }
 
@@ -867,7 +867,6 @@ h6 { font-size: var(--text-xl); }
 .hero__image {
   display: block;
   width: 100%;
-  max-width: 975px;
   height: auto;
   border-radius: var(--radius-xl);
   box-shadow:
@@ -2260,7 +2259,7 @@ h6 { font-size: var(--text-xl); }
   }
 
   .hero__image {
-    max-width: 1050px;
+    width: 100%;
   }
 }
 
