@@ -739,7 +739,7 @@ h6 { font-size: var(--text-xl); }
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: 1.5fr 1fr;
+  grid-template-columns: 1fr 1.2fr;
   gap: var(--space-12);
   align-items: center;
 }
