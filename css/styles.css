@@ -1485,10 +1485,20 @@ h6 { font-size: var(--text-xl); }
   margin-bottom: var(--space-12);
 }
 
-.testimonial__card {
+.testimonial__carousel {
   position: relative;
   max-width: 800px;
   margin: 0 auto;
+}
+
+.testimonial__track {
+  display: flex;
+  transition: transform 0.5s ease-out;
+}
+
+.testimonial__card {
+  position: relative;
+  flex: 0 0 100%;
   padding: var(--space-12);
   background: rgba(255, 255, 255, 0.02);
   backdrop-filter: blur(20px);
@@ -1533,22 +1543,13 @@ h6 { font-size: var(--text-xl); }
   gap: var(--space-4);
 }
 
-.testimonial__avatar {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.testimonial__avatar-img {
   width: 56px;
   height: 56px;
-  background: var(--gradient-accent);
   border-radius: var(--radius-full);
+  object-fit: cover;
+  border: 2px solid var(--border-accent);
   flex-shrink: 0;
-}
-
-.testimonial__avatar span {
-  font-family: var(--font-display);
-  font-size: var(--text-lg);
-  font-weight: var(--font-bold);
-  color: var(--color-text-primary);
 }
 
 .testimonial__author-info {
@@ -1566,6 +1567,66 @@ h6 { font-size: var(--text-xl); }
 .testimonial__author-title {
   font-size: var(--text-sm);
   color: var(--color-text-tertiary);
+}
+
+/* Navigation Arrows */
+.testimonial__nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-full);
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  transition: all var(--duration-base) var(--ease-out);
+  z-index: 10;
+}
+
+.testimonial__nav:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--border-accent);
+  color: var(--color-accent-light);
+}
+
+.testimonial__nav--prev {
+  left: -70px;
+}
+
+.testimonial__nav--next {
+  right: -70px;
+}
+
+/* Dots Navigation */
+.testimonial__dots {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-3);
+  margin-top: var(--space-8);
+}
+
+.testimonial__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  cursor: pointer;
+  transition: all var(--duration-base) var(--ease-out);
+}
+
+.testimonial__dot:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.testimonial__dot--active {
+  background: var(--color-accent);
+  width: 28px;
 }
 
 /* ----------------------------------------

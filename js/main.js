@@ -26,6 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initScrollAnimations();
   initParallaxEffects();
   initTiltEffect();
+  initTestimonialCarousel();
 });
 
 // Show all elements without animation for reduced motion users
@@ -430,4 +431,107 @@ function initTiltEffect() {
     // Initial rect calculation
     updateRect();
   });
+}
+
+// Testimonial Carousel
+function initTestimonialCarousel() {
+  const carousel = document.querySelector('.testimonial__carousel');
+  if (!carousel) return;
+
+  const track = carousel.querySelector('.testimonial__track');
+  const cards = carousel.querySelectorAll('.testimonial__card');
+  const dots = carousel.querySelectorAll('.testimonial__dot');
+  const prevBtn = carousel.querySelector('.testimonial__nav--prev');
+  const nextBtn = carousel.querySelector('.testimonial__nav--next');
+
+  if (!track || cards.length === 0) return;
+
+  let currentIndex = 0;
+  const totalCards = cards.length;
+  let autoplayInterval;
+  let isAutoplayPaused = false;
+
+  // Update carousel position
+  function goToSlide(index) {
+    if (index < 0) index = totalCards - 1;
+    if (index >= totalCards) index = 0;
+
+    currentIndex = index;
+    track.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+    // Update dots
+    dots.forEach((dot, i) => {
+      dot.classList.toggle('testimonial__dot--active', i === currentIndex);
+    });
+  }
+
+  // Navigation handlers
+  function nextSlide() {
+    goToSlide(currentIndex + 1);
+  }
+
+  function prevSlide() {
+    goToSlide(currentIndex - 1);
+  }
+
+  // Event listeners
+  if (prevBtn) prevBtn.addEventListener('click', prevSlide);
+  if (nextBtn) nextBtn.addEventListener('click', nextSlide);
+
+  dots.forEach((dot, i) => {
+    dot.addEventListener('click', () => goToSlide(i));
+  });
+
+  // Autoplay
+  function startAutoplay() {
+    if (autoplayInterval) clearInterval(autoplayInterval);
+    autoplayInterval = setInterval(() => {
+      if (!isAutoplayPaused) nextSlide();
+    }, 5000);
+  }
+
+  // Pause on hover
+  carousel.addEventListener('mouseenter', () => {
+    isAutoplayPaused = true;
+  });
+
+  carousel.addEventListener('mouseleave', () => {
+    isAutoplayPaused = false;
+  });
+
+  // Touch/swipe support
+  let touchStartX = 0;
+  let touchEndX = 0;
+
+  track.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+    isAutoplayPaused = true;
+  }, { passive: true });
+
+  track.addEventListener('touchend', (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipe();
+    isAutoplayPaused = false;
+  }, { passive: true });
+
+  function handleSwipe() {
+    const diff = touchStartX - touchEndX;
+    if (Math.abs(diff) > 50) {
+      if (diff > 0) {
+        nextSlide();
+      } else {
+        prevSlide();
+      }
+    }
+  }
+
+  // Keyboard navigation
+  carousel.setAttribute('tabindex', '0');
+  carousel.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft') prevSlide();
+    if (e.key === 'ArrowRight') nextSlide();
+  });
+
+  // Start autoplay
+  startAutoplay();
 }
