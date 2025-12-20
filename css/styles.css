@@ -737,7 +737,7 @@ h6 { font-size: var(--text-xl); }
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: var(--space-8);
-  align-items: center;
+  align-items: stretch;
 }
 
 /* Left: Text Content */
@@ -745,6 +745,7 @@ h6 { font-size: var(--text-xl); }
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  justify-content: center;
   text-align: left;
 }
 
@@ -838,6 +839,7 @@ h6 { font-size: var(--text-xl); }
   align-items: center;
   justify-content: center;
   opacity: 0;
+  min-height: 100%;
 }
 
 .hero__image-glow {
@@ -858,12 +860,17 @@ h6 { font-size: var(--text-xl); }
   perspective: 1000px;
   transition: transform 0.1s ease-out;
   will-change: transform;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
 }
 
 .hero__image {
   display: block;
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: contain;
   border-radius: var(--radius-xl);
   box-shadow:
     0 25px 50px -12px rgba(0, 0, 0, 0.5),
