@@ -948,11 +948,14 @@ h6 { font-size: var(--text-xl); }
 }
 
 .logos__heading {
-  font-size: var(--text-sm);
-  font-weight: var(--font-medium);
-  color: var(--color-text-tertiary);
+  font-family: var(--font-display);
+  font-size: var(--text-3xl);
+  font-weight: var(--font-bold);
+  color: var(--color-text-primary);
   text-align: center;
-  margin-bottom: var(--space-8);
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+  margin-bottom: var(--space-10);
 }
 
 .logos__carousel {
@@ -2028,6 +2031,7 @@ h6 { font-size: var(--text-xl); }
   }
 
   .logos__heading {
+    font-size: var(--text-2xl);
     padding: 0 var(--space-4);
   }
 
