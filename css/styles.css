@@ -1444,13 +1444,17 @@ h6 { font-size: var(--text-xl); }
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 56px;
-  height: 56px;
+  width: 64px;
+  height: 64px;
   background: var(--gradient-accent-glow);
   border: 1px solid var(--border-accent);
   border-radius: var(--radius-lg);
-  color: var(--color-accent-light);
   margin-bottom: var(--space-5);
+}
+
+.services__card-emoji {
+  font-size: 2rem;
+  line-height: 1;
 }
 
 .services__card-title {
@@ -1620,13 +1624,17 @@ h6 { font-size: var(--text-xl); }
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 48px;
-  height: 48px;
+  width: 52px;
+  height: 52px;
   background: var(--gradient-accent-glow);
   border: 1px solid var(--border-accent);
   border-radius: var(--radius-lg);
-  color: var(--color-accent-light);
   flex-shrink: 0;
+}
+
+.guarantee__card-emoji {
+  font-size: 1.5rem;
+  line-height: 1;
 }
 
 .guarantee__card-content {
