@@ -994,8 +994,8 @@ h6 { font-size: var(--text-xl); }
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: var(--space-4) var(--space-6);
-  min-width: 140px;
+  padding: var(--space-2);
+  min-width: 160px;
   font-size: var(--text-sm);
   font-weight: var(--font-semibold);
   color: var(--color-text-muted);
@@ -1008,8 +1008,9 @@ h6 { font-size: var(--text-xl); }
 }
 
 .logos__item img {
-  max-height: 84px;
-  width: auto;
+  max-height: 120px;
+  width: 100%;
+  object-fit: contain;
 }
 
 /* Pause animation on hover */
