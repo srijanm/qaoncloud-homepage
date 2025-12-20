@@ -1754,7 +1754,19 @@ h6 { font-size: var(--text-xl); }
 .case-study-card__image {
   position: relative;
   height: 180px;
+  overflow: hidden;
   background: linear-gradient(135deg, rgba(26, 26, 46, 0.9) 0%, rgba(22, 33, 62, 0.9) 50%, rgba(15, 52, 96, 0.9) 100%);
+}
+
+.case-study-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--duration-base) var(--ease-out);
+}
+
+.case-study-card:hover .case-study-card__img {
+  transform: scale(1.05);
 }
 
 .case-study-card__image--alt {
