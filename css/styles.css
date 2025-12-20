@@ -1326,6 +1326,12 @@ h6 { font-size: var(--text-xl); }
               box-shadow var(--duration-base) var(--ease-out);
 }
 
+.partner__stat-value {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+}
+
 .partner__stat-number {
   font-family: var(--font-display);
   font-size: var(--text-5xl);
@@ -1339,12 +1345,13 @@ h6 { font-size: var(--text-xl); }
   font-size: var(--text-4xl);
   font-weight: var(--font-bold);
   color: var(--color-accent-light);
-  margin-left: var(--space-1);
 }
 
 .partner__stat-label {
-  font-size: var(--text-sm);
-  color: var(--color-text-tertiary);
+  font-family: var(--font-display);
+  font-size: var(--text-base);
+  font-weight: var(--font-medium);
+  color: var(--color-text-secondary);
   margin-top: var(--space-3);
   text-align: center;
 }
